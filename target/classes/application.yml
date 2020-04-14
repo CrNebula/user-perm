@@ -1,0 +1,31 @@
+spring:
+  # ��������Դ
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test04_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# mybatis-plus�������
+mybatis-plus:
+  # xmlɨ�裬���Ŀ¼�ö��Ż��߷ֺŷָ������� Mapper ����Ӧ�� XML �ļ�λ�ã�
+  mapper-locations: classpath:mapper/*.xml
+  # �������þ���Ĭ��ֵ,���Բ�����
+  global-config:
+    db-config:
+      #�������� AUTO:"���ݿ�ID����" INPUT:"�û�����ID",ID_WORKER:"ȫ��ΨһID (��������ΨһID)", UUID:"ȫ��ΨһID UUID";
+      id-type: auto
+      #�ֶβ��� IGNORED:"�����ж�"  NOT_NULL:"�� NULL �ж�")  NOT_EMPTY:"�ǿ��ж�"
+      field-strategy: NOT_EMPTY
+      #���ݿ�����
+      db-type: MYSQL
+  configuration:
+    # �Ƿ����Զ��շ���������ӳ��:�����ݿ�������Java�����շ�����������ӳ��
+    map-underscore-to-camel-case: true
+    # �����ѯ����а�����ֵ���У��� MyBatis ��ӳ���ʱ�򣬲���ӳ������ֶ�
+    call-setters-on-nulls: true
+    # ������ûὫִ�е�sql��ӡ�������ڿ�������Ե�ʱ�������
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
